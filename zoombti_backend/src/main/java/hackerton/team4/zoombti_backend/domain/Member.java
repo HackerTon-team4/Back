@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor @NoArgsConstructor
 @Getter
-public class Member extends BaseEntity{
+public class Member extends BaseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long uid;
     @Column(unique = true, nullable = false, length = 60)
