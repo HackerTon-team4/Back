@@ -18,6 +18,9 @@ public class Questionnaire {
     @Id
     private Integer questionIdx;
 
+    @Column
+    private Integer ordering;
+
     @Column(nullable = false, length = 300)
     private String question;
 

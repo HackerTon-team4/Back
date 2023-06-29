@@ -29,4 +29,7 @@ public class Member extends BaseEntity {
     @Builder.Default
     @Column(nullable = false)
     private boolean activated = true;
+
+    @ManyToOne
+    private Trait trait;
 }
