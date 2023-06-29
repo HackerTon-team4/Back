@@ -46,8 +46,6 @@ public class SpringSecurityConfig {
                         .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                         .accessDeniedHandler(jwtAccessDeniedHandler)
                 )
-                .requiresChannel((requiresChannel) -> requiresChannel.anyRequest().requiresSecure())
-                .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
                 .apply(new JwtSecurityConfig(tokenProvider));
 
         return http.build();

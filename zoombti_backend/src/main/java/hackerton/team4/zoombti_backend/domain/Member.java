@@ -23,8 +23,10 @@ public class Member extends BaseEntity{
             name = "member_authority",
             joinColumns = {@JoinColumn(name = "member_uid", referencedColumnName = "uid")},
             inverseJoinColumns = {@JoinColumn(name = "member_type", referencedColumnName = "member_type")})
-    private Set<MemberType> memberType;
+    @Builder.Default
+    private Set<MemberType> memberType = Set.of(MemberType.builder().memberType(1).roleName("USER").build());
 
-
+    @Builder.Default
+    @Column(nullable = false)
     private boolean activated = true;
 }

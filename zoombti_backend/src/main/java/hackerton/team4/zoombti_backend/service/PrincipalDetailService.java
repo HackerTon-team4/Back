@@ -33,7 +33,7 @@ public class PrincipalDetailService implements UserDetailsService {
             throw new RuntimeException(loginId + " -> 활성화 되어있지 않음");
         }
         List<GrantedAuthority> grantedAuthorities = member.getMemberType().stream()
-                .map(memberType -> (GrantedAuthority) () -> memberType.getRoleName())
+                .map(memberType -> (GrantedAuthority) memberType::getRoleName)
                 .toList();
         return new User(
                 member.getEmail(),
